@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisionBoard - Academic Goal Tracker</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favicon-icon-1.jpg" />
+
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>VisionBoard</h1>
+      <p class="subtitle">Crush your Aim with a Reminder !</p>
+      <div class="top-actions">
+        <button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </header>
+    <section class="goal-input-section">
+      <form id="goalForm" autocomplete="off">
+        <input type="text" id="goalInput" placeholder="Add a new academic goal..." required>
+        <input type="date" id="deadlineInput">
+        <button type="submit" id="addGoalBtn">Add Goal</button>
+      </form>
+    </section>
+    <section id="quoteSection" class="quote-section">
+      <blockquote id="motivationalQuote"></blockquote>
+    </section>
+    <main>
+      <div id="goalsList" class="goals-list"></div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+ <footer class="footer">
+  <p>Developed by <strong>Kushaal Badavath<strong></p>
+</footer>
+</body>
+</html> 

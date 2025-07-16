@@ -1,0 +1,307 @@
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  color: #222;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s, color 0.4s;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  z-index: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('/img.jpg') center/cover no-repeat;
+  filter: blur(32px);
+  opacity: 0.7;
+  pointer-events: none;
+  transition: background 0.4s, filter 0.4s;
+}
+
+body.dark-mode::before {
+  background:url('/artistic-blurry-colorful-wallpaper-background.jpg') center/cover no-repeat;
+  filter: blur(36px) brightness(0.7);
+  opacity: 0.8;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 2rem 1.5rem 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer {
+  text-align: center;
+  align-items: last baseline;
+  padding: 0.3rem;
+  font-size: 0.95rem;
+  color: #333;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+body.dark-mode .footer {
+  color: #eee;
+}
+
+header {
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  margin: 0 0 0.25em 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  color: #9b7ff6;
+  font-size: 1.1rem;
+  margin-bottom: 0.5em;
+}
+
+.top-actions {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+}
+
+#darkModeToggle {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s;
+}
+#darkModeToggle:hover {
+  color: #222;
+}
+
+.goal-input-section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#goalForm {
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+#goalInput, #deadlineInput {
+  flex: 1 1 150px;
+  padding: 0.7em 1em;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fafbfc;
+  outline: none;
+  transition: border 0.2s;
+}
+#goalInput:focus, #deadlineInput:focus {
+  border: 1.5px solid #4caf50;
+}
+
+#addGoalBtn {
+  padding: 0.7em 1.2em;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#addGoalBtn:hover {
+  background: #388e3c;
+}
+
+.goals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.goal-card {
+  display: flex;
+  flex-direction: column;
+  background: #f5f7fa;
+  border-radius: 10px;
+  padding: 1em 1em 0.7em 1em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: relative;
+  transition: background 0.2s;
+}
+.goal-card.completed {
+  background: #e0f7e9;
+  color: #aaa;
+  text-decoration: line-through;
+}
+.goal-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.3em;
+}
+.goal-deadline {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 0.7em;
+}
+.goal-actions {
+  display: flex;
+  gap: 0.5em;
+  margin-top: auto;
+}
+.goal-actions button {
+  padding: 0.4em 0.9em;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.97rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.mark-done-btn {
+  background: #4caf50;
+  color: #fff;
+}
+.mark-done-btn.completed {
+  background: #bdbdbd;
+  color: #fff;
+}
+.delete-btn {
+  background: #fff;
+  color: #e53935;
+  border: 1px solid #e53935;
+}
+.delete-btn:hover {
+  background: #e53935;
+  color: #fff;
+}
+
+.quote-section {
+  text-align: center;
+  margin: 0.5em 0 1em 0;
+}
+#motivationalQuote {
+  font-style: italic;
+  color: #4caf50;
+  font-size: 1.05rem;
+}
+
+.goal-progress-section {
+  margin: 0.7em 0 0.5em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+.goal-progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.2em;
+}
+.goal-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50 0%, #81c784 100%);
+  border-radius: 6px;
+  transition: width 0.3s;
+}
+.goal-progress-label {
+  font-size: 0.95em;
+  color: #4caf50;
+  font-weight: 500;
+  margin-bottom: 0.2em;
+}
+.goal-progress-range {
+  width: 100%;
+  accent-color: #4caf50;
+}
+body.dark-mode .goal-progress-bar {
+  background: #333;
+}
+body.dark-mode .goal-progress-fill {
+  background: linear-gradient(90deg, #388e3c 0%, #81c784 100%);
+}
+body.dark-mode .goal-progress-label {
+  color: #81c784;
+}
+body.dark-mode .goal-progress-range {
+  accent-color: #81c784;
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 98vw;
+    padding: 1rem 0.5rem 1.5rem 0.5rem;
+  }
+  #goalForm {
+    flex-direction: column;
+    gap: 0.7em;
+  }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background: #181a1b;
+  color: #f7f8fa;
+}
+body.dark-mode .container {
+  background: #23272a;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+body.dark-mode .goal-card {
+  background: #2c3136;
+  color: #f7f8fa;
+}
+body.dark-mode .goal-card.completed {
+  background: #1b2b1b;
+  color: #888;
+}
+body.dark-mode #goalInput, body.dark-mode #deadlineInput {
+  background: #23272a;
+  color: #f7f8fa;
+  border: 1px solid #444;
+}
+body.dark-mode #addGoalBtn {
+  background: #388e3c;
+}
+body.dark-mode .mark-done-btn {
+  background: #388e3c;
+}
+body.dark-mode .delete-btn {
+  background: #23272a;
+  color: #e57373;
+  border: 1px solid #e57373;
+}
+body.dark-mode .delete-btn:hover {
+  background: #e57373;
+  color: #fff;
+}
+body.dark-mode #motivationalQuote {
+  color: #81c784;
+} 
